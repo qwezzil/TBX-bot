@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.ui import View
 import os
 
-# Класс для кнопок
+
 class RoleView(View):
     def __init__(self):
         super().__init__(timeout=None)
@@ -21,7 +21,7 @@ class RoleView(View):
             await interaction.user.add_roles(role)
             await interaction.response.send_message(f"Added: {role.name}", ephemeral=True)
 
-    # Кнопки с уникальными ID
+  
     @discord.ui.button(label="Sneak Peeks", style=discord.ButtonStyle.primary, custom_id="r_sneak")
     async def b1(self, i, b): await self.toggle(i, 1444046588434710690)
 
@@ -51,7 +51,7 @@ async def send_roles(ctx):
         description="Choose your role by clicking one of the buttons below. This will give you access to specific channels and let others know your interests. You can change or remove your role at any time.", 
         color=0x2b2d31
     )
-    # Добавляем твою картинку
+    
     embed.set_image(url="https://cdn.discordapp.com/attachments/1474492252842627316/1474755141042438174/roles_banner_for_discord___by_krazibeast_dflgeiu-fullview.png")
 
     await ctx.send(embed=embed, view=RoleView())
